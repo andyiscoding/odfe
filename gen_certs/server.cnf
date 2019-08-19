@@ -1,0 +1,34 @@
+
+
+# Stop confirmation prompts. All information is contained below.
+prompt			= no
+distinguished_name = req_distinguished_name
+
+
+[ req_distinguished_name ]
+# Describe the Subject (ie the origanisation).
+# The first 6 below could be shortened to: C ST L O OU CN
+# The short names are what are shown when the certificate is displayed.
+# Eg the details below would be shown as:
+#    Subject: C=UK, ST=Hertfordshire, L=My Town, O=Some Organisation, OU=Some Department, CN=www.example.com/emailAddress=bofh@example.com
+
+# Leave as long names as it helps documentation
+
+countryName=		US
+stateOrProvinceName=	MD
+localityName=		Pasadena
+organizationName=	Youth
+organizationalUnitName=	OK
+commonName=		odfe*
+
+[ req_attributes ]
+# None. Could put Challenge Passwords, don't want them, leave empty
+
+subjectAltName = @alt_names
+
+# List of all the other DNS names that the certificate should work for.
+# alt_names is a name of my own invention
+[ alt_names ]
+DNS.1 = elasticsearch
+DNS.2 = odfe-node1
+DNS.3 = odfe-node2
